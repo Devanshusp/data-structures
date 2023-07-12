@@ -9,6 +9,10 @@ public class Main {
         testMyHashMap();
 
         System.out.print("\n");
+
+        testMyLinkedList();
+
+        System.out.println("\n");
     }
 
     public static void testMyArrayList() {
@@ -60,5 +64,37 @@ public class Main {
          * [ "one" : 1 ]
          * }
          */
+    }
+
+    public static void testMyLinkedList() {
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+
+        // Test append() and size()
+        linkedList.append(10);
+        linkedList.append(20);
+        linkedList.append(30);
+        System.out.println("LinkedList size after appending elements: " + linkedList.size()); // Output: 3
+
+        // Test prepend() and size()
+        linkedList.prepend(5);
+        System.out.println("LinkedList size after prepending an element: " + linkedList.size()); // Output: 4
+
+        // Test insert()
+        linkedList.insert(15, 2);
+        System.out.println("LinkedList size after inserting an element at index 2: " + linkedList.size()); // Output: 5
+
+        // Test remove() by value
+        boolean removed = linkedList.remove(Integer.valueOf(20));
+        System.out.println("LinkedList size after removing an element by value: " + linkedList.size()); // Output: 4
+        System.out.println("Element 20 removed: " + removed); // Output: true
+
+        // Test remove() by index
+        Integer removedElement = linkedList.remove(2);
+        System.out.println("LinkedList size after removing an element by index: " + linkedList.size()); // Output: 3
+        System.out.println("Element removed at index 2: " + removedElement); // Output: 15
+
+        // Test toString()
+        System.out.println("LinkedList contents: " + linkedList.toString());
+        // Output: [ 5 ] --> [ 10 ] --> [ 30 ]
     }
 }
