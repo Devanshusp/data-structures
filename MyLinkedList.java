@@ -41,11 +41,21 @@ public class MyLinkedList<E> {
         size++;
     }
 
+    public E get(int index) {
+        checkForOutOfBounds(index);
+        Node<E> node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node.value;
+    }
+
     public void insert(E value, int index) {
-        if (index <= 0) {
+        checkForOutOfBounds(index);
+        if (index == 0) {
             this.prepend(value);
             return;
-        } else if (index >= size) {
+        } else if (index == size - 1) {
             this.append(value);
             return;
         }
@@ -80,9 +90,7 @@ public class MyLinkedList<E> {
     }
 
     public E remove(int index) {
-        if (index < 0 || index >= size) {
-            return null;
-        }
+        checkForOutOfBounds(index);
         Node<E> prev = head;
         Node<E> node = head.next;
         if (index == 0) {
@@ -97,6 +105,12 @@ public class MyLinkedList<E> {
         prev.next = node.next;
         size--;
         return node.value;
+    }
+
+    private void checkForOutOfBounds(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
     }
 
     public String toString() {

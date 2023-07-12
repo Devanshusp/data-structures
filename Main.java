@@ -32,8 +32,9 @@ public class Main {
         System.out.println("Updated element at index 2: " + list.get(2)); // Output: 40
 
         // Test remove()
-        list.remove(0);
+        boolean removed = list.remove(0);
         System.out.println("ArrayList size after removing an element: " + list.size()); // Output: 2
+        System.out.println("Removed element at index 0: " + removed); // Output: true
 
         // Test toString()
         System.out.println("ArrayList contents: " + list.toString()); // Output: [ 20, 40 ]
@@ -52,16 +53,17 @@ public class Main {
         System.out.println("Value for key 'two': " + map.get("two")); // Output: 2
 
         // Test remove()
-        map.remove("two");
+        boolean removed = map.remove("two");
         System.out.println("HashMap size after removing an entry: " + map.size()); // Output: 2
+        System.out.println("Removed element at key 'two': " + removed); // Output: true
 
         // Test toString()
         System.out.println("HashMap contents: " + map.toString());
         /*
          * Output:
          * {
-         * [ "three" : 3 ]
          * [ "one" : 1 ]
+         * [ "three" : 3 ]
          * }
          */
     }
@@ -79,19 +81,22 @@ public class Main {
         linkedList.prepend(5);
         System.out.println("LinkedList size after prepending an element: " + linkedList.size()); // Output: 4
 
+        // Test get()
+        System.out.println("Element at index 1: " + linkedList.get(1)); // Output: 10
+
         // Test insert()
         linkedList.insert(15, 2);
         System.out.println("LinkedList size after inserting an element at index 2: " + linkedList.size()); // Output: 5
 
         // Test remove() by value
-        boolean removed = linkedList.remove(Integer.valueOf(20));
+        boolean removedByValue = linkedList.remove(Integer.valueOf(20));
         System.out.println("LinkedList size after removing an element by value: " + linkedList.size()); // Output: 4
-        System.out.println("Element 20 removed: " + removed); // Output: true
+        System.out.println("Element 20 removed: " + removedByValue); // Output: true
 
         // Test remove() by index
-        Integer removedElement = linkedList.remove(2);
+        Integer removedByIndex = linkedList.remove(2);
         System.out.println("LinkedList size after removing an element by index: " + linkedList.size()); // Output: 3
-        System.out.println("Element removed at index 2: " + removedElement); // Output: 15
+        System.out.println("Element removed at index 2: " + removedByIndex); // Output: 15
 
         // Test toString()
         System.out.println("LinkedList contents: " + linkedList.toString());

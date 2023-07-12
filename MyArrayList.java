@@ -34,13 +34,14 @@ public class MyArrayList<E> {
         elements[index] = element;
     }
 
-    public void remove(int index) {
+    public boolean remove(int index) {
         checkForOutOfBounds(index);
         int numToMove = size - (index + 1);
         if (numToMove > 0) {
             System.arraycopy(elements, index + 1, elements, index, numToMove);
         }
         elements[--size] = null;
+        return true;
     }
 
     private void ensureCapacity(int minCapacity) {

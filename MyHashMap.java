@@ -70,7 +70,7 @@ public class MyHashMap<K, V> {
         return null;
     }
 
-    public void remove(K key) {
+    public boolean remove(K key) {
         int index = hash(key);
         Node<K, V> node = table[index];
         Node<K, V> prev = null;
@@ -82,11 +82,12 @@ public class MyHashMap<K, V> {
                     prev.next = node.next;
                 }
                 size--;
-                return;
+                return true;
             }
             prev = node;
             node = node.next;
         }
+        return false;
     }
 
     @SuppressWarnings("unchecked")
