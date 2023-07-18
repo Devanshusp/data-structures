@@ -28,3 +28,9 @@
   - `E peek()`
   - `E pop()`
   - `String toString()`
+- Queue
+  - `int size()`
+  - `void enqueue(E value)`
+  - `E peek()`
+  - `E dequeue()`
+  - `String toString()`

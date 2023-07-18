@@ -5,6 +5,7 @@ public class Main {
         testMyHashMap();
         testMyLinkedList();
         testMyStack();
+        testMyQueue();
     }
 
     public static void testMyArrayList() {
@@ -130,6 +131,37 @@ public class Main {
         stack.pop();
         System.out.println("Stack size after popping from an empty stack: " + stack.size()); // Output: 0
         System.out.println("Popped element from an empty stack: " + stack.pop()); // Output: null
+
+        // New line
+        System.out.print("\n");
+    }
+
+    public static void testMyQueue() {
+        MyQueue<Integer> queue = new MyQueue<>();
+
+        // Test enqueue() and size()
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        System.out.println("Queue size after enqueueing elements: " + queue.size()); // Output: 3
+
+        // Test peek()
+        System.out.println("Front element in the queue: " + queue.peek()); // Output: 10
+
+        // Test dequeue()
+        Integer dequeuedElement = queue.dequeue();
+        System.out.println("Dequeued element from the queue: " + dequeuedElement); // Output: 10
+        System.out.println("Queue size after dequeuing an element: " + queue.size()); // Output: 2
+
+        // Test toString()
+        System.out.println("Queue contents: " + queue.toString());
+        // Output: [ 20 ] --> [ 30 ]
+
+        // Test dequeue() when queue is empty
+        queue.dequeue();
+        queue.dequeue();
+        System.out.println("Queue size after dequeuing from an empty queue: " + queue.size()); // Output: 0
+        System.out.println("Dequeued element from an empty queue: " + queue.dequeue()); // Output: null
 
         // New line
         System.out.print("\n");
