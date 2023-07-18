@@ -1,6 +1,5 @@
 public class MyStack<E> {
     private Node<E> head;
-    private Node<E> tail;
     private int size;
 
     public MyStack() {
@@ -23,36 +22,21 @@ public class MyStack<E> {
 
     public void push(E value) {
         Node<E> newNode = new Node<E>(value);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail.next = newNode;
-            tail = newNode;
-        }
+        newNode.next = head;
+        head = newNode;
         size++;
     }
 
     public E peek() {
-        return tail.value;
+        return head.value;
     }
 
     public E pop() {
-        if (size <= 0) {
+        if (size <= 0)
             return null;
-        }
-        E value = tail.value;
-        if (size == 1) {
-            head = null;
-            tail = null;
-        } else {
-            Node<E> node = head;
-            while (node.next != null && node.next.next != null) {
-                node = node.next;
-            }
-            node.next = null;
-            tail = node;
-        }
+
+        E value = head.value;
+        head = head.next;
         size--;
         return value;
     }

@@ -123,7 +123,7 @@ public class Main {
 
         // Test toString()
         System.out.println("Stack contents: " + stack.toString());
-        // Output: [ 10 ] --> [ 20 ]
+        // Output: [ 20 ] --> [ 10 ]
 
         // Test pop() when stack is empty
         stack.pop();
