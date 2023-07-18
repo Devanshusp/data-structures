@@ -1,18 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         System.out.print("\n");
-
         testMyArrayList();
-
-        System.out.print("\n");
-
         testMyHashMap();
-
-        System.out.print("\n");
-
         testMyLinkedList();
-
-        System.out.println("\n");
+        testMyStack();
     }
 
     public static void testMyArrayList() {
@@ -38,6 +30,9 @@ public class Main {
 
         // Test toString()
         System.out.println("ArrayList contents: " + list.toString()); // Output: [ 20, 40 ]
+
+        // New line
+        System.out.print("\n");
     }
 
     public static void testMyHashMap() {
@@ -66,6 +61,9 @@ public class Main {
          * [ "three" : 3 ]
          * }
          */
+
+        // New line
+        System.out.print("\n");
     }
 
     public static void testMyLinkedList() {
@@ -101,5 +99,39 @@ public class Main {
         // Test toString()
         System.out.println("LinkedList contents: " + linkedList.toString());
         // Output: [ 5 ] --> [ 10 ] --> [ 30 ]
+
+        // New line
+        System.out.print("\n");
+    }
+
+    public static void testMyStack() {
+        MyStack<Integer> stack = new MyStack<>();
+
+        // Test push() and size()
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println("Stack size after pushing elements: " + stack.size()); // Output: 3
+
+        // Test peek()
+        System.out.println("Top element in the stack: " + stack.peek()); // Output: 30
+
+        // Test pop()
+        Integer poppedElement = stack.pop();
+        System.out.println("Popped element from the stack: " + poppedElement); // Output: 30
+        System.out.println("Stack size after popping an element: " + stack.size()); // Output: 2
+
+        // Test toString()
+        System.out.println("Stack contents: " + stack.toString());
+        // Output: [ 10 ] --> [ 20 ]
+
+        // Test pop() when stack is empty
+        stack.pop();
+        stack.pop();
+        System.out.println("Stack size after popping from an empty stack: " + stack.size()); // Output: 0
+        System.out.println("Popped element from an empty stack: " + stack.pop()); // Output: null
+
+        // New line
+        System.out.print("\n");
     }
 }

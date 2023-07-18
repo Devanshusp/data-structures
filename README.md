@@ -22,3 +22,9 @@
   - `boolean remove(E value)`
   - `E remove(int index)`
   - `String toString()`
+- Stack
+  - `int size()`
+  - `void push(E value)`
+  - `E peek()`
+  - `E pop()`
+  - `String toString()`
